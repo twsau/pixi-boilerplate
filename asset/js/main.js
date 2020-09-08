@@ -1,21 +1,19 @@
 const Application = PIXI.Application;
 const loader = PIXI.Loader.shared;
 
-let app;
-let camera;
+class Game {
+	constructor() {
+		PIXI.utils.skipHello();
+		this.app = new Application({antialias: true, width: 400, height: 400});
+		$('#loading').remove();
+		document.body.appendChild(this.app.view);
+		this.app.ticker.add(delta => this.update(delta));
+	}
+	update() {
+
+	}
+}
 
 loader
 	// .add('sprite alias', 'filepath')
-	.load(function(){$(document).ready(setup)});
-
-function setup() {
-	PIXI.utils.skipHello();
-	app = new Application({antialias: true, width: window.innerWidth, height: window.innerHeight});
-	$('#loading').remove();
-	document.body.appendChild(app.view);
-	app.ticker.add(delta => update(delta));
-}
-
-function update(delta) {
-
-}
+	.load(function(){$(document).ready(function() {game = new Game();});});
