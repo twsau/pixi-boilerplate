@@ -8,9 +8,33 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-  <script src="./asset/js/main.js"></script>
+  <script type="module" src="./asset/js/main.js"></script>
 </head>
 <body>
-	<h1 id="loading">loading...</h1>
+	<header>
+		<h2>title</h2>
+		<div class="controls">
+			<button id="fullscreen">
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-fullscreen" fill="white" xmlns="http://www.w3.org/2000/svg">
+				  <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+				</svg>
+			</button>
+		</div>
+	</header>
+	<main id="root">
+		<h1 id="loading">loading...</h1>
+	</main>
+	<footer>
+		~ ~ ~ info ~ ~ ~
+		<hr>
+		<h3>Put any info about your game here:</h3>
+		<br>
+		<ul>
+			<li>introduction to narrative?</li>
+			<li>controls?</li>
+			<li>release notes or upcoming features?</li>
+			<li>merch?</li>
+		</ul>
+	</footer>
 </body>
 </html>

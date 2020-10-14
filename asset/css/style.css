@@ -5,7 +5,7 @@
 html, body {
 	height: 100%;
 	margin: 0;
-	overflow: hidden;
+	overflow-x: hidden;
 	width: 100%;
 }
 
@@ -14,18 +14,66 @@ body {
 }
 
 canvas {
-	left: 50%;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	height: 540px;
+	left: calc((100vw - 990px) / 2);
+	position: relative;
+	width: 990px;
 }
 
-@media only screen and (max-width: 1366px), only screen and (max-height: 768) {
+canvas.fullscreen {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+#root {
+	min-height: 540px;
+}
+
+.controls {
+	margin-left: auto;
+	position: relative;
+}
+
+.controls button {
+	background-color: rgba(20, 20, 20, 0);
+	border: none;
+	height: 2rem;
+	outline: none;
+	transition: background 0.1s ease-in-out;
+	width: 2rem;
+}
+
+.controls button:hover {
+	background-color: rgba(20, 20, 20, 0.5);
+}
+
+.controls button:hover svg {
+	fill: #ffffff;
+}
+
+.controls button.selected {
+	background-color: rgb(10, 10, 10);
+}
+
+.controls button.selected svg {
+	fill: #00ffff;
+}
+
+svg {
+}
+
+@media only screen and (max-width: 990px) {
 	canvas {
 		left: 0;
-		height: 100%;
 		transform: translate(0, -50%);
 		width: 100%;
+	}
+	.controls {
+		display: none;
 	}
 }
 
@@ -36,4 +84,40 @@ canvas {
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
+}
+
+header {
+	align-items: center;
+	color: white;
+	display: flex;
+	font-family: 'Press Start 2P';
+	height: 4rem;
+	justify-content: center;
+	margin: 0;
+	padding: 0 1rem;
+	text-align: center;
+}
+
+header h2 {
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+footer {
+	color: white;
+	font-family: 'Press Start 2P';
+	margin: 2rem auto;
+	min-height: 400px;
+	position: relative;
+	text-align: center;
+	width: 90%;
+}
+
+hr {
+	margin: 1.5rem auto;
+	width: 80%;
+}
+
+ul {
+	list-style: none;
 }
