@@ -5,7 +5,7 @@ const loader = PIXI.Loader.shared;
 const manifest = {};
 const preload = () => {
   for (const [key, value] of Object.entries(manifest)) {
-    loader.add(ley, value);
+    loader.add(key, value);
   }
 }
 const load = () => {
