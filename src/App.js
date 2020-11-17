@@ -1,5 +1,5 @@
-import { Application, Sprite, utils } from 'pixi.js';
-import { Bodies, Engine } from 'matter-js';
+import { Application, utils } from 'pixi.js';
+import { Engine } from 'matter-js';
 import Camera from './Camera.js';
 import './App.css';
 
@@ -7,7 +7,7 @@ const manifest = {
 
 };
 
-export default class App extends Application {
+class App extends Application {
 
 	constructor() {
 		utils.skipHello();
