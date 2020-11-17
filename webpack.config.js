@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	devServer: {
@@ -11,7 +12,7 @@ module.exports = {
     open: 'brave-browser'
   },
 	entry: {
-		main: path.resolve(__dirname, './src/index.js'),
+		main: path.resolve(__dirname, './src/App.js'),
 	},
 	mode: 'development',
 	module: {
@@ -33,5 +34,10 @@ module.exports = {
 	    	filename: 'index.html', // output file
 			}),
 			new CleanWebpackPlugin(),
+			new CopyPlugin({
+	      patterns: [
+	        { from: "src/assets", to: "assets" },
+	      ],
+	    }),
 	],
 };
