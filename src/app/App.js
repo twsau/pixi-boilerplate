@@ -14,12 +14,12 @@ export default class App extends Application {
 			width: 990,
 			height: 540
 		});
-		document.body.appendChild(this.view);
-		document.querySelector('#loading').remove();
 		Object.assign(this, {
 			camera: new Camera(this.screen),
-			engine: Engine.create(document.querySelector('canvas'))
+			engine: Engine.create()
 		});
+		document.body.appendChild(this.view);
+		document.querySelector('#loading').remove();
 		this.stage.addChild(this.camera);
 		this.ticker.add(delta => this.update(delta));
 		Engine.run(this.engine);
