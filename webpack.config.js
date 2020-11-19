@@ -12,7 +12,7 @@ module.exports = {
     open: 'brave-browser'
   },
 	entry: {
-		main: path.resolve(__dirname, './src/App.js'),
+		main: path.resolve(__dirname, './src/index.js'),
 	},
 	mode: 'development',
 	module: {
@@ -36,7 +36,7 @@ module.exports = {
 			new CleanWebpackPlugin(),
 			new CopyPlugin({
 	      patterns: [
-	        { from: "src/assets", to: "assets" },
+	        { from: "src/game/asset", to: "asset" },
 	      ],
 	    }),
 	],
