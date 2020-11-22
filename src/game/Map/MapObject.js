@@ -16,6 +16,10 @@ const MapObject = {
 		wall.body = Bodies.rectangle(x, y, w, h, {
 			isStatic: true
 		});
+		if (a) {
+			Body.rotate(wall.body, a * Math.PI / 180);
+			wall.rotation = wall.body.angle;
+		}
 		MapObject.init.sprite(wall);
 		return wall;
 	}

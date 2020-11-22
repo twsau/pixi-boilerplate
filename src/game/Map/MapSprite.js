@@ -11,6 +11,9 @@ const MapSprite = {
 	Wall: {
 		sandstone: (x, y, w, h, a) => {
 			let wall = new TilingSprite(loader.resources['wall_sandstone'].texture, w, h);
+			if (a) {
+				wall.angle = a;
+			}
 			MapSprite.init.sprite(wall, x, y);
 			return wall;
 		}
