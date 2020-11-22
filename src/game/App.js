@@ -1,9 +1,8 @@
-import { Application, Graphics, Loader, Sprite } from 'pixi.js';
+import { Application, Graphics } from 'pixi.js';
 import { Engine, World } from 'matter-js';
 import Camera from './Camera.js';
 import Map from './Map/Map.js';
 import './App.css';
-const loader = Loader.shared;
 
 const config = {
 	antialias: true,
