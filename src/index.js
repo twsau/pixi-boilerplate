@@ -4,14 +4,14 @@ import * as WebFont from 'webfontloader';
 const loader = Loader.shared;
 
 const manifest = {
-	// load assets here
-}
+	wall_sandstone: './asset/img/wall_sandstone.png'
+};
 
 const preload = () => {
 	for (const [key, value] of Object.entries(manifest)) {
 		loader.add(key, value);
 	}
-}
+};
 
 const load = () => {
 	loader.load(() => {
@@ -27,7 +27,7 @@ const load = () => {
 			}
 		})
 	})
-}
+};
 
 preload();
 load();
