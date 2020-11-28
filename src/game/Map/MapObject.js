@@ -11,17 +11,19 @@ const MapObject = {
 			sprite.position.set(sprite.body.position.x, sprite.body.position.y);
 		}
 	},
-	Wall: (x, y, w, h, a) => {
-		const wall = new TilingSprite(loader.resources['wall_sandstone'].texture, w, h);
-		wall.body = Bodies.rectangle(x, y, w, h, {
-			isStatic: true
-		});
-		if (a) {
-			Body.rotate(wall.body, a * Math.PI / 180);
-			wall.rotation = wall.body.angle;
+	Wall: {
+		sandstone: (x, y, w, h, a) => {
+			const wall = new TilingSprite(loader.resources['wall_sandstone'].texture, w, h);
+			wall.body = Bodies.rectangle(x, y, w, h, {
+				isStatic: true
+			});
+			if (a) {
+				Body.rotate(wall.body, a * Math.PI / 180);
+				wall.rotation = wall.body.angle;
+			}
+			MapObject.init.sprite(wall);
+			return wall;
 		}
-		MapObject.init.sprite(wall);
-		return wall;
 	}
 };
 
