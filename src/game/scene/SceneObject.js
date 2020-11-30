@@ -4,7 +4,7 @@ import decomp from 'poly-decomp';
 window.decomp = decomp;
 const loader = Loader.shared;
 
-const MapObject = {
+const SceneObject = {
 	init: {
 		sprite: sprite => {
 			sprite.anchor.set(0.5);
@@ -21,10 +21,10 @@ const MapObject = {
 				Body.rotate(wall.body, a * Math.PI / 180);
 				wall.rotation = wall.body.angle;
 			}
-			MapObject.init.sprite(wall);
+			SceneObject.init.sprite(wall);
 			return wall;
 		}
 	}
 };
 
-export default MapObject;
+export default SceneObject;

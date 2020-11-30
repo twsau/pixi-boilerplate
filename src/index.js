@@ -4,7 +4,8 @@ import * as WebFont from 'webfontloader';
 const loader = Loader.shared;
 
 const manifest = {
-	wall_sandstone: './asset/img/wall_sandstone.png'
+	wall_sandstone: './asset/img/wall_sandstone.png',
+	logo: './asset/img/logo.png'
 };
 
 const preload = () => {

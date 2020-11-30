@@ -3,7 +3,7 @@ import { Engine, Events, use, World } from 'matter-js';
 import 'matter-attractors';
 use('matter-attractors');
 import Camera from './Camera.js';
-import Map from './Map/Map.js';
+import SceneLoader from './scene/SceneLoader.js';
 import './App.css';
 
 const config = {
@@ -18,9 +18,11 @@ export default class App extends Application {
 		super(config);
 		Object.assign(this, {
 			camera: new Camera(this.screen),
-			engine: Engine.create()
+			engine: Engine.create(),
+			updatables: []
 		});
-		loadMap(this, 'example');
+		this.updatables.push(this.camera);
+		loadScene(this, 'example');
 		handleCollision(this);
 		// this.camera.addChild();
 		this.stage.addChild(this.camera);
@@ -28,21 +30,27 @@ export default class App extends Application {
 		Engine.run(this.engine);
 	}
 	update() {
-		this.camera.update();
+		this.updatables.forEach(asset => {
+			asset.update();
+		});
 	}		
 }
 
-const loadMap = (app, title) => {
-	if (title in Map) {
-		let map = Map[title]();
-		for (const [key, value] of Object.entries(map)) {
-			app.camera.addChild(value);
-			if (value.body) {
-				World.add(app.engine.world, value.body);
+const loadScene = (app, sceneTitle) => {
+	if (sceneTitle in SceneLoader) {
+		app.updatables = [];
+		let scene = SceneLoader[sceneTitle]();
+		for (const [alias, asset] of Object.entries(scene)) {
+			app.camera.addChild(asset);
+			if (asset.body) {
+				World.add(app.engine.world, asset.body);
+			}
+			if (asset.update) {
+				app.updatables.push(asset);
 			}
 		}
 	} else {
-		console.log(`error: asset "${title}" does not exist`);
+		console.log(`error: scene "${sceneTitle}" does not exist`)
 	}
 }
 

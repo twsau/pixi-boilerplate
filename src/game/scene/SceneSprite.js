@@ -1,12 +1,17 @@
 import { Loader, Sprite, TilingSprite } from 'pixi.js';
 const loader = Loader.shared;
 
-const MapSprite = {
+const SceneSprite = {
 	init: {
 		sprite: (sprite, x, y) => {
 			sprite.anchor.set(0.5);
 			sprite.position.set(x, y);
 		}
+	},
+	Logo: (x, y) => {
+		let logo = new Sprite(loader.resources['logo'].texture);
+		SceneSprite.init.sprite(logo, x, y);
+		return logo;
 	},
 	Wall: {
 		sandstone: (x, y, w, h, a) => {
@@ -14,10 +19,10 @@ const MapSprite = {
 			if (a) {
 				wall.angle = a;
 			}
-			MapSprite.init.sprite(wall, x, y);
+			SceneSprite.init.sprite(wall, x, y);
 			return wall;
 		}
 	}
 }
 
-export default MapSprite;
+export default SceneSprite;
