@@ -4,8 +4,14 @@ import * as WebFont from 'webfontloader';
 const loader = Loader.shared;
 
 const manifest = {
-	wall_sandstone: './asset/img/wall_sandstone.png',
-	logo: './asset/img/logo.png'
+	bark: './asset/img/bark.png',
+	brick: './asset/img/brick.png',
+	concrete: './asset/img/concrete.png',
+	lava: './asset/img/lava.png',
+	marble: './asset/img/marble.png',
+	metal: './asset/img/metal.png',
+	rock: './asset/img/rock.png',
+	sandstone: './asset/img/sandstone.png'
 };
 
 const preload = () => {
