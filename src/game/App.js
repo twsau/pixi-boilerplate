@@ -3,6 +3,7 @@ import { Engine, Events, use, World } from 'matter-js';
 import 'matter-attractors';
 use('matter-attractors');
 import Platform from './objects/Platform.js';
+import Cannonball from './objects/Cannonball.js';
 import Wall from './sprites/Wall.js';
 import Scene from './Scene.js';
 import './App.css';
@@ -22,7 +23,41 @@ export default class App extends Application {
 			objects: []
 		});
 		handleCollision(this);
-		loadScene(this);
+
+
+		// background
+		Scene.add(this, new Wall(this.screen.width / 2, this.screen.height / 2, this.screen.width, this.screen.height, {
+			texture: 'concrete'
+		}));
+
+		// floor
+		Scene.add(this, new Platform(this.screen.width / 2, this.screen.height - 10, this.screen.width, 20, {
+			texture: 'concrete'
+		}));
+
+		// structure
+		Scene.add(this, new Platform(this.screen.width / 2, this.screen.height - 40, 20, 100, {
+			texture: 'bark'
+		}));
+		Scene.add(this, new Platform(this.screen.width / 2 - 25, this.screen.height - 110, 200, 10, {
+			angle: -10,
+			isStatic: false,
+			texture: 'bark'
+		}));
+		Scene.add(this, new Platform(this.screen.width / 2 - 30, this.screen.height -130, 20, 20, {
+			angle: -10,
+			isStatic: false,
+			texture: 'marble'
+		}));
+
+		// cannonball
+		Scene.add(this, new Cannonball(this.screen.width / 2, 100, {
+			force: {
+				x: 0.01,
+				y: -0.07
+			}
+		}));
+
 		this.ticker.add(delta => this.update(delta));
 		Engine.run(this.engine);
 	}
@@ -32,7 +67,7 @@ export default class App extends Application {
 				object.update();
 			}
 		})
-	}		
+	}
 }
 
 const handleCollision = app => {
@@ -51,12 +86,4 @@ const handleCollision = app => {
 			const {bodyA: a, bodyB: b} = pair;
 		});
 	});
-}
-
-const loadScene = app => {
-	const { width, height } = app.screen;
-	let wall = new Wall(width / 2, height / 2, width, height, {
-		texture: 'concrete'
-	});
-	Scene.add(app, wall);
 }

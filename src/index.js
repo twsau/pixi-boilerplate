@@ -4,14 +4,20 @@ import * as WebFont from 'webfontloader';
 const loader = Loader.shared;
 
 const manifest = {
-	bark: './asset/img/bark.png',
-	brick: './asset/img/brick.png',
-	concrete: './asset/img/concrete.png',
-	lava: './asset/img/lava.png',
-	marble: './asset/img/marble.png',
-	metal: './asset/img/metal.png',
-	rock: './asset/img/rock.png',
-	sandstone: './asset/img/sandstone.png'
+	// textures
+	bark: './asset/img/textures/bark.png',
+	brick: './asset/img/textures/brick.png',
+	concrete: './asset/img/textures/concrete.png',
+	lava: './asset/img/textures/lava.png',
+	marble: './asset/img/textures/marble.png',
+	metal: './asset/img/textures/metal.png',
+	rock: './asset/img/textures/rock.png',
+	rust: './asset/img/textures/rust.png',
+	sandstone: './asset/img/textures/sandstone.png',
+
+
+	// sprites
+	cannonball: './asset/img/cannonball.png'
 };
 
 const preload = () => {
