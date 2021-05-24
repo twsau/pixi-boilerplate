@@ -18,9 +18,16 @@ module.exports = {
 	module: {
 	  rules: [
 	    {
-	      test: /\.css$/,
-	      use: ['style-loader', 'css-loader']
-	    }
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
 	  ]
 	},
 	output: {
@@ -29,14 +36,14 @@ module.exports = {
 	},
 	plugins: [
     	new HtmlWebpackPlugin({
-	    	title: 'pixi-matter-webpack',
+	    	title: 'pixi-boilerplate',
 	    	template: path.resolve(__dirname, './src/template.html'), // template file
 	    	filename: 'index.html', // output file
 			}),
 			new CleanWebpackPlugin(),
 			new CopyPlugin({
 	      patterns: [
-	        { from: "src/game/asset", to: "asset" },
+	        { from: "src/asset", to: "asset" },
 	      ],
 	    }),
 	],
