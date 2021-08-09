@@ -1,4 +1,4 @@
-import { Application } from 'pixi.js/Application';
+import { Application } from 'pixi.js';
 import Example from './sprite/Example.js';
 
 export default class App extends Application {
