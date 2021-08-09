@@ -1,12 +1,12 @@
-import { Application } from 'pixi.js';
+import { Application } from 'pixi.js/Application';
 import Example from './sprite/Example.js';
 
 export default class App extends Application {
   constructor() {
     super({
       backgroundColor: 0x081820,
-      height: 540,
-      width: 990,
+      height: window.innerHeight,
+      width: window.innerWidth,
       view: document.querySelector('canvas')
     });
     this.example = new Example();

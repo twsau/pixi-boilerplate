@@ -9,7 +9,7 @@ module.exports = {
     compress: true,
     hot: true,
     port: 3000,
-    open: 'brave-browser'
+    open: false
   },
 	entry: {
 		main: path.resolve(__dirname, './src/index.js'),
